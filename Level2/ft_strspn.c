@@ -7,25 +7,27 @@ size_t ft_strspn(const char *s, const char *accept)
 	size_t z = 0;
 	size_t count = 0;
 	int match = 0;
+	size_t size = 0;
 
 	if (!s[i] || !accept[i])
 		return (0);
+	while (accept[size])
+		size++;
 	while (s[i])
 	{
 		z = 0;
 		match = 0;
-		while (accept[z] && s[i])
+		while (accept[z] && s[i] && match == 0)
 		{
 			if (s[i] == accept[z])
 			{
 				count++;
 				match = 1;
-				i++;
 			}
+			if (z == (size - 1) && match == 0)
+				return (count);
 			z++;
 		}
-		if (match == 0)
-			return (count);
 		i++;
 	}
 	return (count);
@@ -33,8 +35,8 @@ size_t ft_strspn(const char *s, const char *accept)
 
 int main(void)
 {
-	char s[] = "maria";
-	char accept[] = "mari";
+	char s[] = "jmoaria joao";
+	char *accept = "mariaj";
 	printf("%ld\n", ft_strspn(s, accept));
 	printf("%ld\n", strspn(s, accept));
 }
