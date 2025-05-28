@@ -19,7 +19,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		current = current->next;
 	}
 	current = *begin_list;
-	result = (*cmp)(current->next->data, data_ref);
+	result = (*cmp)(current->data, data_ref);
 	if (current && result == 0)
 	{
 		*begin_list = current->next;
