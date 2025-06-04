@@ -2,7 +2,7 @@
 
 void fill(char **tab, t_point size, t_point curr, char to_fill)
 {
-	if (curr.x < 0 || curr.y < 0 || curr.x >= size.x || curr.y >= size.y || tab[curr.x, curr.y] != to_fill)
+	if (curr.x < 0 || curr.y < 0 || curr.x >= size.x || curr.y >= size.y || tab[curr.x][curr.y] != to_fill)
 		return ;
 	
 	tab[curr.x][curr.y] = 'F';
