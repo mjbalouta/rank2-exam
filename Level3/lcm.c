@@ -1,3 +1,4 @@
+#include <stdio.h>
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
 	if (!a || !b)
@@ -6,10 +7,16 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 	int j = 1;
 	unsigned int res1 = 0;
 	unsigned int res2 = 1;
+	int num1 = a;
+	int num2 = b;
+	if (num1 < 0)
+		num1 *= -1;
+	if (num2 < 0)
+		num2 *= -1;
 	while (res1 != res2)
 	{
-		res1 = a * i;
-		res2 = b * j;
+		res1 = num1 * i;
+		res2 = num2 * j;
 		if (res1 < res2)
 			i++;
 		if (res1 > res2)
@@ -20,7 +27,7 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 #include <stdio.h>
 int main(void)
 {
-	int result = lcm(1237, 2027);
+	int result = lcm(-1, 2932);
 	printf("%d\n", result);
 
 }
